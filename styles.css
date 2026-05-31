@@ -1,0 +1,370 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+  background-color: #eef2f6;
+  position: relative;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('background.svg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body > header,
+body > main,
+body > footer {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+header {
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.profile-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid #1f2937;
+  object-fit: cover;
+  background: #ffffff;
+}
+
+.header-content h1 {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  margin: 0;
+  max-width: 680px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(31, 41, 55, 0.16);
+  margin: 1.5rem 0;
+}
+
+.contact-list,
+.about-list,
+.skills ul,
+.certifications ul,
+.projects ol,
+.achievements ol {
+  margin: 0;
+  padding: 0;
+}
+
+.contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+}
+
+.contact-list li {
+  padding: 0.35rem 0.55rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(31, 41, 55, 0.08);
+  border-radius: 999px;
+}
+
+.contact-list a {
+  color: #0f4c81;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding-bottom: 2rem;
+}
+
+.about-me,
+.summary,
+.experience,
+.projects,
+.skills,
+.education,
+.certifications,
+.achievements {
+  margin-bottom: 2rem;
+}
+
+.about-me,
+.summary,
+.experience,
+.projects,
+.skills,
+.education,
+.certifications,
+.achievements {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(31, 41, 55, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.about-me h2,
+.summary h2,
+.experience h2,
+.projects h2,
+.skills h2,
+.education h2,
+.certifications h2,
+.achievements h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #0f4c81;
+}
+
+.about-me p,
+.summary p,
+.experience p,
+.projects p,
+.education p,
+.certifications p,
+.achievements p {
+  color: #374151;
+}
+
+.about-list,
+.skills ul,
+.certifications ul {
+  list-style: disc inside;
+  margin-top: 1rem;
+}
+
+.about-list li,
+.skills ul li,
+.certifications ul li {
+  margin-bottom: 0.75rem;
+}
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 1.75rem;
+}
+
+.main-content article,
+.skills > div,
+.education,
+.certifications {
+  margin-bottom: 1.5rem;
+}
+
+.experience article,
+.projects li {
+  margin-bottom: 1.25rem;
+}
+
+.experience h3,
+.projects h3,
+.skills h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  color: #111827;
+}
+
+.job-meta {
+  margin: 0 0 0.75rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.experience ul,
+.projects ol,
+.achievements ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+.experience ul li,
+.skills ul li,
+.certifications ul li,
+.about-list li {
+  line-height: 1.65;
+}
+
+.projects ol,
+.achievements ol {
+  counter-reset: step-counter;
+  padding-left: 1.25rem;
+}
+
+.projects ol li,
+.achievements ol li {
+  counter-increment: step-counter;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.projects ol li::before,
+.achievements ol li::before {
+  content: counter(step-counter) '.';
+  position: absolute;
+  left: 0;
+  color: #0f4c81;
+  font-weight: 700;
+}
+
+.projects a {
+  color: #0f4c81;
+  text-decoration: none;
+}
+
+.projects a:hover {
+  text-decoration: underline;
+}
+
+aside {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.skills > div {
+  margin-bottom: 1rem;
+}
+
+.skills ul {
+  list-style: disc inside;
+}
+
+footer {
+  padding: 1.25rem 0 3rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+@media (max-width: 860px) {
+  .resume-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Resume-specific styles moved from resume.html */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0 1rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #1b1b1b;
+}
+header, section, aside {
+  margin-bottom: 2rem;
+}
+header {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #333;
+}
+h1, h2, h3 {
+  margin: 0;
+}
+.header-top {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.profile-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #333;
+  flex-shrink: 0;
+}
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.contact-list li {
+  margin: 0;
+}
+.about-list {
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+}
+.about-list li {
+  margin-bottom: 0.5rem;
+}
+.contact-list a,
+.projects a {
+  color: #1a5f9f;
+  text-decoration: none;
+}
+.contact-list a:hover,
+.projects a:hover {
+  text-decoration: underline;
+}
+.skill-list, .details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.skill-list li, .details-list li {
+  margin-bottom: 0.5rem;
+}
+.resume-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+.resume-grid > aside {
+  background: #f8f8f8;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.experience, .education, .projects {
+  margin-bottom: 1.5rem;
+}
+.experience article, .education article, .projects article {
+  margin-bottom: 1rem;
+}
+.job-title, .degree {
+  font-weight: 700;
+}
+.job-meta, .education-meta {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+.job-description, .project-description {
+  margin: 0;
+}
